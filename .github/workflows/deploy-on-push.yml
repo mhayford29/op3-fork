@@ -83,7 +83,7 @@ jobs:
       - name: Deploy to prod
         run: ./deploy.sh
         env:
-          CF_CUSTOM_DOMAIN: ""
+          CF_CUSTOM_DOMAIN: "${{ env.PRODUCTION_DOMAIN }}"
           CF_SCRIPT_NAME: op3-fork
           CF_BACKEND_DO_NAMESPACE: backend-do-prod
           CF_AE_DATASET: dataset1-prod
