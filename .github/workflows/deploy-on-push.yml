@@ -84,7 +84,7 @@ jobs:
         run: ./deploy.sh
         env:
           CF_CUSTOM_DOMAIN: ${{ env.PRODUCTION_DOMAIN }}
-          CF_SCRIPT_NAME: op3-prod
+          CF_SCRIPT_NAME: op3-fork
           CF_BACKEND_DO_NAMESPACE: backend-do-prod
           CF_AE_DATASET: dataset1-prod
           CF_ANALYTICS_TOKEN: 7da609030515408f9ec8b16c529cecaf
