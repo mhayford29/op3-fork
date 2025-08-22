@@ -29,8 +29,8 @@ export class PodcastIndexClient {
     podcastIndexCredentials: string | undefined;
   }): PodcastIndexClient | undefined {
     const { userAgent, podcastIndexCredentials } = opts;
-    console.warn({ userAgent, podcastIndexCredentials });
     const m = /^(\w+):(\w+)$/.exec(podcastIndexCredentials ?? "");
+    console.warn({ userAgent, m });
     if (m) {
       const [_, apiKey, apiSecret] = m;
       return new PodcastIndexClient({ apiKey, apiSecret, userAgent });
