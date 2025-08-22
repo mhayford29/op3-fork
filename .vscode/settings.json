@@ -1,9 +1,11 @@
 {
-    "deno.enable": true,
-    "deno.unstable": true,
-    "files.exclude": {
-        "deno-*": true,
-        "deno.lock": true,
-        "app": true,
-    }
+  "deno.enable": true,
+  "deno.unstable": true,
+  "files.exclude": {
+    "deno-*": true,
+    "deno.lock": true,
+    "app": true
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": false
 }
