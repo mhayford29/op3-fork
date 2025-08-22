@@ -29,13 +29,21 @@ export class PodcastIndexClient {
     podcastIndexCredentials: string | undefined;
   }): PodcastIndexClient | undefined {
     const { userAgent, podcastIndexCredentials } = opts;
-    const m = /^(\w+):(\w+)$/.exec(podcastIndexCredentials ?? "");
+    function parseCreds(s = "") {
+      const i = s.indexOf(":");
+      if (i < 0) return null;
+      const apiKey = s.slice(0, i).trim();
+      const apiSecret = s.slice(i + 1).trim();
+      return apiKey && apiSecret ? [s, apiKey, apiSecret] : null;
+    }
+    const m = parseCreds(podcastIndexCredentials);
     console.warn({ userAgent, m });
     if (m) {
       const [_, apiKey, apiSecret] = m;
       return new PodcastIndexClient({ apiKey, apiSecret, userAgent });
     }
   }
+
 
   async searchPodcastsByTerm(q: string): Promise<SearchPodcastsByTermResponse> {
     const u = new URL("https://api.podcastindex.org/api/1.0/search/byterm");

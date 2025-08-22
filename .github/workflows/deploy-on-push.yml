@@ -73,13 +73,11 @@ jobs:
   #         XFETCHER: ${{ secrets.XFETCHER }}
   deploy-prod:
     runs-on: ubuntu-22.04
-    env:
-      DEPLOY_SHA: 1ef353fbac54b3eaed4e18afc45f8dea987aa011
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          ref: ${{ env.DEPLOY_SHA }}
+          ref: ${{ github.sha }}
       - name: Deploy to prod
         run: ./deploy.sh
         env:
