@@ -37,7 +37,6 @@ export class PodcastIndexClient {
       return apiKey && apiSecret ? [s, apiKey, apiSecret] : null;
     }
     const m = parseCreds(podcastIndexCredentials);
-    console.warn({ userAgent, m });
     if (m) {
       const [_, apiKey, apiSecret] = m;
       return new PodcastIndexClient({ apiKey, apiSecret, userAgent });
