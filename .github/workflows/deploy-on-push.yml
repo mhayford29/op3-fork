@@ -86,7 +86,7 @@ jobs:
           CF_BACKEND_DO_NAMESPACE: backend-do-prod
           CF_AE_DATASET: dataset1-prod
           CF_ANALYTICS_TOKEN: 7da609030515408f9ec8b16c529cecaf
-          TURNSTILE_SITEKEY: "${{ env.TURNSTILE_SITEKEY }}"
+          TURNSTILE_SITEKEY: "${{ vars.TURNSTILE_SITEKEY }}"
           TURNSTILE_SECRET_KEY: ${{ secrets.PROD_TURNSTILE_SECRET_KEY }}
           INSTANCE: prod
           ADMIN_TOKENS: ${{ secrets.PROD_ADMIN_TOKENS }}
