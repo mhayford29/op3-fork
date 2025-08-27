@@ -60,7 +60,15 @@ async function query(request: Unkinded<QueryRedirectLogsRequest>, { rpcClient, h
     }
 
     const attNums = new AttNums();
+    console.warn("Before logging hits response", {
+      hitsBlobs,
+      attNums,
+      indexSortKeys,
+      descending,
+      backupBlobs,
+    });
     const response = await queryPackedRedirectLogsFromHits(request, { hitsBlobs, attNums, indexSortKeys, descending, backupBlobs });
+    console.warn({ response });
     const rows: unknown[] = [];
     const includes = include.split(',');
     const includeAsn = includes.includes('asn');
