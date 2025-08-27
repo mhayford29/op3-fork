@@ -67,6 +67,11 @@ async function query(request: Unkinded<QueryRedirectLogsRequest>, { rpcClient, h
       descending,
       backupBlobs,
     });
+    const probe = await hitsBlobs.bucket.list({
+      prefix: hitsBlobs.prefix,
+      limit: 1,
+    });
+    console.warn("list sample key:", probe.objects?.[0]?.key);
     const response = await queryPackedRedirectLogsFromHits(request, { hitsBlobs, attNums, indexSortKeys, descending, backupBlobs });
     console.warn({ response });
     const rows: unknown[] = [];
