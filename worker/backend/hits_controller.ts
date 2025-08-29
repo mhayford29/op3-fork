@@ -115,6 +115,7 @@ export class HitsController {
         let newUrlCount = 0;
         if (rpcClient) {
             try {
+                console.warn("serverUrlFoundTimestamps", { serverUrlFoundTimestamps, knownServerUrls });
                 const newUrlInfos = Object.entries(serverUrlFoundTimestamps).map(v => ({ url: v[0], found: timestampToInstant(v[1]) })).filter(v => !knownServerUrls.includes(v.url));
                 newUrlCount = newUrlInfos.length;
                 if (newUrlCount > 0) {

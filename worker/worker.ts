@@ -223,7 +223,6 @@ async function tryComputeRedirectResponse(request: Request, opts: { env: WorkerE
                     const { queue2 } = env;
                     if (queue2) {
                         try {
-                          console.warn(`Sending raw redirects to queue2: ${JSON.stringify(rawRedirects, undefined, 2)}`);
                           await sendWithRetries(queue2, rawRedirects, { tag: 'queue2.send', contentType: 'json' });
                         } catch (e) {
                             // save to DO for retrying later, try to avoid Queues altogether here in case the entire system is down
