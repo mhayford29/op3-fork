@@ -4,6 +4,7 @@ export function tryParsePrefixArguments(url: string, { origin }: { origin: strin
     // not necessarily an inbound url, could be from an external notification with op3 somewhere in the middle of the redirect chain
     const host = new URL(origin).host; // hostname:port (if present)
     const m = new RegExp(`/${host}/e,(pg)(=|%3[Dd])([0-9A-Fa-f-]+)/`).exec(url);
+    console.warn("tryParsePrefixArguments", { url, origin, host, m });
     if (m) {
         const [ _, name, _op, value ] = m;
         if (name === 'pg') {
