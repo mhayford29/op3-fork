@@ -87,9 +87,11 @@ export class ShowControllerNotifications {
                 const val = map.get(key);
                 const existing = isUrlRecord(val) && val;
                 if (existing && existing.found <= found) {
+                    console.warn("Existing URL Record Found", { existing, found, map });
                     // already found it
                     continue;
                 }
+                console.warn("New URL Record", { url, found, val, existing, map });
                 const foundSource = notification.sender;
                 newRecords[key] = existing ? { ...existing, found, foundSource } : { url, found, foundSource };
                 if (!existing) {
