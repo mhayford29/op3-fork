@@ -87,7 +87,7 @@ export class ShowControllerNotifications {
                 const val = map.get(key);
                 const existing = isUrlRecord(val) && val;
                 if (existing && existing.found <= found) {
-                    console.warn("Existing URL Record Found", { existing, found, map });
+                    console.warn("Existing URL Record Found", { key, val, existing, found, map });
                     // already found it
                     continue;
                 }
