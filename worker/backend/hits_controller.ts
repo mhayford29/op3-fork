@@ -125,8 +125,7 @@ export class HitsController {
                         sent: time,
                         urls: newUrlInfos,
                     };
-                
-                    console.warn("HELLO", { newUrlInfos, knownServerUrls });
+
                     await timed(times, 'sendNotification', () => rpcClient.receiveExternalNotification({ received: time, notification }, DoNames.showServer));
                     for (const { url } of newUrlInfos) {
                         const i = knownServerUrls.indexOf(url);

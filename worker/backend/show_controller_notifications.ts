@@ -99,6 +99,7 @@ export class ShowControllerNotifications {
                     }
                 }
             }
+            console.warn("New Records, Podcast Guids", { newRecords, podcastGuids });
             const newRecordsCount = Object.keys(newRecords).length;
             if (newRecordsCount > 0) {
                 consoleInfo('sc-not',`ShowController: saving ${newRecordsCount} url records (${Object.values(newRecords).map(v => `${v.url} at ${v.found} by ${v.foundSource}`).join(', ')})`);
