@@ -59,6 +59,8 @@ export async function computeShowsResponse(opts: ShowsOpts): Promise<Response> {
     if (lookupResult instanceof Response) return lookupResult;
     const { showUuid, showUuidInput } = lookupResult;
 
+    console.warn("Compute Shows Response", { showUuid, showUuidInput });
+
     const targetRpcClient = searchParams.has('ro') ? roRpcClient : rpcClient;
     if (!targetRpcClient) throw new Error(`Need rpcClient`);
 
