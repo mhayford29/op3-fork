@@ -56,6 +56,8 @@ export async function computeShowsResponse(opts: ShowsOpts): Promise<Response> {
     if (method !== 'GET') return newMethodNotAllowedResponse(method);
   
     const lookupResult = await lookupShowId(opts);
+    console.warn("Lookup Result", { lookupResult });
+
     if (lookupResult instanceof Response) return lookupResult;
     const { showUuid, showUuidInput } = lookupResult;
 

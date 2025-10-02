@@ -47,6 +47,7 @@ export async function computeApiResponse(request: ApiRequest, opts: Opts): Promi
     const { instance, method, hostname, origin, path, searchParams, bearerToken, rawIpAddress, bodyProvider, colo, deploySha, deployTime, userAgent } = request;
     const { rpcClient, adminTokens, previewTokens, turnstileSecretKey, podcastIndexCredentials, background, jobQueue, statsBlobs, roStatsBlobs, roRpcClient, configuration, miscBlobs, roMiscBlobs, hitsBlobs, roHitsBlobs, backupBlobs, roBackupBlobs, baselime, limiter, xfetcher } = opts;
 
+    console.warn("Configuration", { configuration });
     const start = Date.now();
     const namespace = `op3-${instance}-api-${method.toLowerCase()}${computeNamespaceSuffix(path)}`;
     const data: Record<string, unknown> = { method, bearerToken, origin, colo, path, searchParams: searchParams.toString(), deploySha, deployTime };
